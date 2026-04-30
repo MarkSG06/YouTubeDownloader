@@ -47,7 +47,8 @@ form.addEventListener("submit", async (event) => {
 
     if (!response.ok) {
       const errorData = await response.json();
-      throw new Error(errorData.message || "Error al descargar.");
+      console.log(errorData);
+      throw new Error(errorData.error || errorData.message || "Error al descargar.");
     }
 
     const blob = await response.blob();

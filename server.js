@@ -49,7 +49,8 @@ app.post("/download", (req, res) => {
         videoUrl,
     ];
 
-    const ytdlp = spawn("python3", args);
+    const pythonCommand = process.env.PYTHON_BIN || "python";
+    const ytdlp = spawn(pythonCommand, args);
     let errorOutput = "";
 
     ytdlp.stderr.on("data", (data) => {
