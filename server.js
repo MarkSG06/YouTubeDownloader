@@ -49,8 +49,7 @@ app.post("/download", (req, res) => {
         videoUrl,
     ];
 
-    const ytdlp = spawn("python", args);
-
+    const ytdlp = spawn("python3", args);
     let errorOutput = "";
 
     ytdlp.stderr.on("data", (data) => {
